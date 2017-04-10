@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbHour = new System.Windows.Forms.ComboBox();
             this.cbMinute = new System.Windows.Forms.ComboBox();
             this.cbSecond = new System.Windows.Forms.ComboBox();
@@ -46,30 +47,170 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnSleep = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // cbHour
             // 
+            this.cbHour.Font = new System.Drawing.Font("Lucida Bright", 10F);
             this.cbHour.FormattingEnabled = true;
+            this.cbHour.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
             this.cbHour.Location = new System.Drawing.Point(23, 109);
             this.cbHour.Name = "cbHour";
-            this.cbHour.Size = new System.Drawing.Size(54, 24);
+            this.cbHour.Size = new System.Drawing.Size(54, 28);
             this.cbHour.TabIndex = 0;
             // 
             // cbMinute
             // 
+            this.cbMinute.Font = new System.Drawing.Font("Lucida Bright", 10F);
             this.cbMinute.FormattingEnabled = true;
+            this.cbMinute.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
             this.cbMinute.Location = new System.Drawing.Point(141, 109);
             this.cbMinute.Name = "cbMinute";
-            this.cbMinute.Size = new System.Drawing.Size(54, 24);
+            this.cbMinute.Size = new System.Drawing.Size(54, 28);
             this.cbMinute.TabIndex = 1;
             // 
             // cbSecond
             // 
+            this.cbSecond.Font = new System.Drawing.Font("Lucida Bright", 10F);
             this.cbSecond.FormattingEnabled = true;
+            this.cbSecond.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
             this.cbSecond.Location = new System.Drawing.Point(269, 109);
             this.cbSecond.Name = "cbSecond";
-            this.cbSecond.Size = new System.Drawing.Size(54, 24);
+            this.cbSecond.Size = new System.Drawing.Size(54, 28);
             this.cbSecond.TabIndex = 2;
             // 
             // lblHour
@@ -124,6 +265,7 @@
             this.btnLogoff.TabIndex = 8;
             this.btnLogoff.Text = "Log off";
             this.btnLogoff.UseVisualStyleBackColor = true;
+            this.btnLogoff.Click += new System.EventHandler(this.btnLogoff_Click);
             // 
             // btnShutdown
             // 
@@ -134,6 +276,7 @@
             this.btnShutdown.TabIndex = 11;
             this.btnShutdown.Text = "Shutdown";
             this.btnShutdown.UseVisualStyleBackColor = true;
+            this.btnShutdown.Click += new System.EventHandler(this.btnShutdown_Click);
             // 
             // btnResume
             // 
@@ -144,11 +287,13 @@
             this.btnResume.TabIndex = 14;
             this.btnResume.Text = "Resume";
             this.btnResume.UseVisualStyleBackColor = true;
+            this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
             // 
             // lblText
             // 
             this.lblText.AutoSize = true;
             this.lblText.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Bold);
+            this.lblText.ForeColor = System.Drawing.Color.MediumBlue;
             this.lblText.Location = new System.Drawing.Point(23, 74);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(53, 17);
@@ -159,7 +304,8 @@
             // 
             this.lblRemain.AutoSize = true;
             this.lblRemain.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Bold);
-            this.lblRemain.Location = new System.Drawing.Point(272, 74);
+            this.lblRemain.ForeColor = System.Drawing.Color.Crimson;
+            this.lblRemain.Location = new System.Drawing.Point(280, 74);
             this.lblRemain.Name = "lblRemain";
             this.lblRemain.Size = new System.Drawing.Size(53, 17);
             this.lblRemain.TabIndex = 17;
@@ -174,6 +320,7 @@
             this.btnPause.TabIndex = 20;
             this.btnPause.Text = "Pause";
             this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnHibernate
             // 
@@ -184,6 +331,7 @@
             this.btnHibernate.TabIndex = 19;
             this.btnHibernate.Text = "Hibernate";
             this.btnHibernate.UseVisualStyleBackColor = true;
+            this.btnHibernate.Click += new System.EventHandler(this.btnHibernate_Click);
             // 
             // btnLock
             // 
@@ -194,6 +342,7 @@
             this.btnLock.TabIndex = 18;
             this.btnLock.Text = "Lock";
             this.btnLock.UseVisualStyleBackColor = true;
+            this.btnLock.Click += new System.EventHandler(this.btnLock_Click);
             // 
             // btnCancel
             // 
@@ -204,6 +353,7 @@
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnRestart
             // 
@@ -214,6 +364,7 @@
             this.btnRestart.TabIndex = 22;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btnSleep
             // 
@@ -224,6 +375,11 @@
             this.btnSleep.TabIndex = 21;
             this.btnSleep.Text = "Sleep";
             this.btnSleep.UseVisualStyleBackColor = true;
+            this.btnSleep.Click += new System.EventHandler(this.btnSleep_Click);
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MainForm
             // 
@@ -278,5 +434,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Button btnSleep;
+        private System.Windows.Forms.Timer timer;
     }
 }
