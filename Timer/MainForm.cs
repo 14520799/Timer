@@ -146,7 +146,7 @@ namespace Timer
         {
             btnPause.Enabled = true;
             btnCancel.Enabled = true;
-
+            
             int hour, minute, second;
 
             hour = time / 3600;
@@ -161,9 +161,10 @@ namespace Timer
             if (time < 0)
             {
                 timer.Stop();
+                timer.Enabled = false;
 
                 lblRemain.Text = "Timed out !";
-                this.Text = lblRemain.Text;
+                this.Text = "Nice Timer";
 
                 switch (type)
                 {
