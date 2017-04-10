@@ -181,10 +181,16 @@ namespace Timer
                         Application.SetSuspendState(PowerState.Hibernate, true, true);
                         break;
                     case "Shutdown":
-                        ExitWindowsEx(1, 0);
+                        ProcessStartInfo shutdown = new ProcessStartInfo("shutdown", "-s -t 0");
+                        shutdown.CreateNoWindow = true;
+                        shutdown.UseShellExecute = false;
+                        Process.Start(shutdown);
                         break;
                     case "Restart":
-                        ExitWindowsEx(2, 0);
+                        ProcessStartInfo restart = new ProcessStartInfo("shutdown", "-r -t 0");
+                        restart.CreateNoWindow = true;
+                        restart.UseShellExecute = false;
+                        Process.Start(restart);
                         break;
                     default:
                         return;
